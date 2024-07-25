@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="showRegistration()">Register here</a></p>
+    </div>
+
+    <div id="registration" class="container hidden">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <label for="regUsername">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" required>
+
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="IT Department">IT Department</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Finance">Finance</option>
+                <option value="HR">HR</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <h2>Welcome, <span id="user"></span></h2>
+        <button onclick="viewAttendance()">View Attendance</button>
+        <button onclick="viewMes()">MES</button>
+        <button onclick="viewProjects()">Projects</button>
+        <button onclick="viewSalary()">Salary</button>
+    </div>
+
+    <div id="projects" class="hidden">
+        <h2>Projects</h2>
+        <h3>Ongoing Projects</h3>
+        <ul id="ongoingProjects">
+            <!-- Ongoing projects will be listed here -->
+        </ul>
+        <button onclick="addNewProject()">Add New</button>
+        <button onclick="showHistory()">Show History</button>
+    </div>
+    
+    <div id="history" class="hidden">
+        <h2>Project History</h2>
+        <ul id="projectHistory">
+            <!-- Completed projects will be listed here -->
+        </ul>
+        <button onclick="goBack()">Back</button>
+    </div>
+    
+
+    <div id="mes" class="hidden">
+        <h2>Cafeteria Menu</h2>
+        <div id="categories">
+            <button class="category" onclick="showCategory('Snacks')">Snacks</button>
+            <button class="category" onclick="showCategory('Breakfast')">Breakfast</button>
+            <button class="category" onclick="showCategory('Drinks')">Drinks</button>
+            <button class="category" onclick="showCategory('Lunch')">Lunch</button>
+        </div>
+        <ul id="menuItems">
+            <!-- Menu items will be listed here -->
+        </ul>
+        <button onclick="generateBill()">Add to Cart</button>
+    </div>
+
+    <div id="payment" class="hidden">
+        <h2>Bill Summary</h2>
+        <ul id="cartItems">
+            <!-- Selected items will be listed here -->
+        </ul>
+        <p>Total: ₹<span id="totalAmount">0.00</span></p>
+        <button onclick="payWithGPay()">Pay with GPay</button>
+        <button onclick="payWithCash()">Pay with Cash</button>
+        <button onclick="deductFromSalary()">Deduct from Salary</button>
+    </div>
+
+    <div id="salary" class="hidden">
+        <h2>Salary Details</h2>
+        <p id="salaryAmount"></p>
+        <button onclick="viewBillHistory()">View Bill History</button>
+        <button onclick="goBackToDashboard()">Back</button>
+    </div>
+    
+    <div id="billHistory" class="hidden">
+        <h2>Bill History</h2>
+        <ul id="billHistoryList">
+            <!-- Bill history will be listed here -->
+        </ul>
+        <button onclick="goBackToSalary()">Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
